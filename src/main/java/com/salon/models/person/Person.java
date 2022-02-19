@@ -1,4 +1,4 @@
-package com.salon.model.person;
+package com.salon.models.person;
 
 import java.util.Objects;
 
