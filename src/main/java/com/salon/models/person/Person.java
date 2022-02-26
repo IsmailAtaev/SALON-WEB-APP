@@ -3,7 +3,9 @@ package com.salon.models.person;
 import java.util.Objects;
 
 public class Person {
+
     private String name;
+
     private int age;
 
     public String getName() {
