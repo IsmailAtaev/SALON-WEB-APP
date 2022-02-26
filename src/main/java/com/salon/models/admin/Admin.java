@@ -1,10 +1,10 @@
 package com.salon.models.admin;
 
 import com.salon.models.user.User;
-
 import java.util.Objects;
 
 public class Admin extends User {
+
     private String status;
 
     public String getStatus() {

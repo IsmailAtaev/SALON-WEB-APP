@@ -1,15 +1,14 @@
 package com.salon.models.user;
 
-import com.salon.models.person.Person;
 import java.util.Objects;
 
-public class User extends Person {
+public class User {
 
     private int userID;
 
-    private String login;
+    private String username;
 
-    private String pass;
+    private String password;
 
     public User(){
 
@@ -17,8 +16,8 @@ public class User extends Person {
 
     public User(int userID, String login, String pass) {
         this.userID = userID;
-        this.login = login;
-        this.pass = pass;
+        this.username = login;
+        this.password = pass;
     }
 
     public int getUserID() {
@@ -29,42 +28,41 @@ public class User extends Person {
         this.userID = userID;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPass() {
-        return pass;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         User user = (User) o;
-        return userID == user.userID && Objects.equals(login, user.login) && Objects.equals(pass, user.pass);
+        return userID == user.userID && Objects.equals(username, user.username) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), userID, login, pass);
+        return Objects.hash(userID, username, password);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "userID=" + userID +
-                ", login='" + login + '\'' +
-                ", pass='" + pass + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

@@ -1,26 +1,26 @@
 package com.salon.models.master;
 
-import com.salon.models.person.Person;
+
 import com.salon.models.type_of_service.TypeOfService;
 import java.util.Objects;
 
-public class Master extends Person {
+public class Master extends TypeOfService {
 
     private int masterID;
 
     private int serviceTypeID;
 
-    private String nameMaster;
+    private String name;
 
     private String experience;
 
     public Master() {
     }
 
-    public Master(int masterID, int serviceTypeID, String nameMaster, String experience) {
+    public Master(int masterID, int serviceTypeID, String name, String experience) {
         this.masterID = masterID;
         this.serviceTypeID = serviceTypeID;
-        this.nameMaster = nameMaster;
+        this.name = name;
         this.experience = experience;
     }
 
@@ -40,12 +40,12 @@ public class Master extends Person {
         this.serviceTypeID = serviceTypeID;
     }
 
-    public String getNameMaster() {
-        return nameMaster;
+    public String getName() {
+        return name;
     }
 
-    public void setNameMaster(String nameMaster) {
-        this.nameMaster = nameMaster;
+    public void setName(String nameMaster) {
+        this.name = nameMaster;
     }
 
     public String getExperience() {
@@ -63,12 +63,12 @@ public class Master extends Person {
         if (!super.equals(o)) return false;
         Master master = (Master) o;
         return masterID == master.masterID && serviceTypeID == master.serviceTypeID
-                && Objects.equals(nameMaster, master.nameMaster) && Objects.equals(experience, master.experience);
+                && Objects.equals(name, master.name) && Objects.equals(experience, master.experience);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), masterID, serviceTypeID, nameMaster, experience);
+        return Objects.hash(super.hashCode(), masterID, serviceTypeID, name, experience);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class Master extends Person {
         return "Master{" +
                 "masterID=" + masterID +
                 ", serviceTypeID=" + serviceTypeID +
-                ", nameMaster='" + nameMaster + '\'' +
+                ", nameMaster='" + name + '\'' +
                 ", experience='" + experience + '\'' +
                 '}';
     }

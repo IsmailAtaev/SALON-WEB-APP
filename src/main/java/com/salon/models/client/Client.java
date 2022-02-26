@@ -1,26 +1,48 @@
 package com.salon.models.client;
 
 import com.salon.models.user.User;
-
 import java.util.Date;
 import java.util.Objects;
 
 public class Client extends User {
 
+    private int clientID;
+
+    private String name;
+
     private Date birthDate;
 
     private String sex;
 
-
-    public Client(Date birthDate, String sex) {
+    public Client(int clientID, String name, Date birthDate, String sex) {
+        this.clientID = clientID;
+        this.name = name;
         this.birthDate = birthDate;
         this.sex = sex;
     }
 
-    public Client(int userID, String login, String pass, Date birthDate, String sex) {
+    public Client(int userID, String login, String pass, int clientID, String name, Date birthDate, String sex) {
         super(userID, login, pass);
+        this.clientID = clientID;
+        this.name = name;
         this.birthDate = birthDate;
         this.sex = sex;
+    }
+
+    public int getClientID() {
+        return clientID;
+    }
+
+    public void setClientID(int clientID) {
+        this.clientID = clientID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Date getBirthDate() {
@@ -45,19 +67,22 @@ public class Client extends User {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Client client = (Client) o;
-        return Objects.equals(birthDate, client.birthDate) && Objects.equals(sex, client.sex);
+        return clientID == client.clientID && Objects.equals(name, client.name) && Objects.equals(birthDate, client.birthDate) && Objects.equals(sex, client.sex);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), birthDate, sex);
+        return Objects.hash(super.hashCode(), clientID, name, birthDate, sex);
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "birthDate=" + birthDate +
+                "clientID=" + clientID +
+                ", name='" + name + '\'' +
+                ", birthDate=" + birthDate +
                 ", sex='" + sex + '\'' +
                 '}';
     }
 }
+
