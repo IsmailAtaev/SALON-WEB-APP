@@ -4,7 +4,7 @@ package com.salon.models.master;
 import com.salon.models.type_of_service.TypeOfService;
 import java.util.Objects;
 
-public class Master extends TypeOfService {
+public class Master {
 
     private int masterID;
 

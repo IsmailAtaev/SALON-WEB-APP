@@ -9,6 +9,15 @@ public class TypeOfService {
     private String typeOfServiceName;
 
 
+    public TypeOfService() {
+
+    }
+
+    public TypeOfService(int typeOfServiceID, String typeOfServiceName) {
+        this.typeOfServiceID = typeOfServiceID;
+        this.typeOfServiceName = typeOfServiceName;
+    }
+
     public int getTypeOfServiceID() {
         return typeOfServiceID;
     }
@@ -44,18 +53,5 @@ public class TypeOfService {
                 "typeOfServiceID=" + typeOfServiceID +
                 ", typeOfServiceName=" + typeOfServiceName +
                 '}';
-    }
-
-    public TypeOfService() {
-        super();
-    }
-
-    public TypeOfService(String typeOfServiceName) {
-        this.typeOfServiceName = typeOfServiceName;
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return new TypeOfService(this.typeOfServiceName);
     }
 }

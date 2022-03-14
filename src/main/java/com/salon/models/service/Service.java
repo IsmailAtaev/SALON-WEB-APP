@@ -3,7 +3,7 @@ package com.salon.models.service;
 import com.salon.models.type_of_service.TypeOfService;
 import java.util.Objects;
 
-public class Service extends TypeOfService {
+public class Service {
 
     private int serviceID;
 
@@ -15,13 +15,6 @@ public class Service extends TypeOfService {
     }
 
     public Service(int serviceID, String name, double price) {
-        this.serviceID = serviceID;
-        this.name = name;
-        this.price = price;
-    }
-
-    public Service(String typeOfServiceName, int serviceID, String name, double price) {
-        super(typeOfServiceName);
         this.serviceID = serviceID;
         this.name = name;
         this.price = price;

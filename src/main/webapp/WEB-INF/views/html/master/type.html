@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Master</title>
+</head>
+<body>
+<div th:each="temp : ${people}">
+
+    <a th:text="${temp.getTypeOfServiceID() + ' ' + temp.getTypeOfServiceName()}">user</a>
+
+</div>
+
+</body>
+</html>

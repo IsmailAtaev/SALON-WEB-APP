@@ -4,7 +4,7 @@ import com.salon.models.user.User;
 import java.util.Date;
 import java.util.Objects;
 
-public class Client extends User {
+public class Client {
 
     private int clientID;
 
@@ -14,7 +14,16 @@ public class Client extends User {
 
     private String sex;
 
-    public Client(int clientID, String name, Date birthDate, String sex) {
+    public Client() {
+    }
+
+    public Client(String name, Date birthDate, String sex) {
+        this.name = name;
+        this.birthDate = birthDate;
+        this.sex = sex;
+    }
+
+   /* public Client(int clientID, String name, Date birthDate, String sex) {
         this.clientID = clientID;
         this.name = name;
         this.birthDate = birthDate;
@@ -22,20 +31,12 @@ public class Client extends User {
     }
 
     public Client(int userID, String login, String pass, int clientID, String name, Date birthDate, String sex) {
-        super(userID, login, pass);
+        super(login, pass);
         this.clientID = clientID;
         this.name = name;
         this.birthDate = birthDate;
         this.sex = sex;
-    }
-
-    public int getClientID() {
-        return clientID;
-    }
-
-    public void setClientID(int clientID) {
-        this.clientID = clientID;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -61,18 +62,25 @@ public class Client extends User {
         this.sex = sex;
     }
 
+    public int getClientID() {
+        return clientID;
+    }
+
+    public void setClientID(int clientID) {
+        this.clientID = clientID;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Client client = (Client) o;
         return clientID == client.clientID && Objects.equals(name, client.name) && Objects.equals(birthDate, client.birthDate) && Objects.equals(sex, client.sex);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), clientID, name, birthDate, sex);
+        return Objects.hash(clientID, name, birthDate, sex);
     }
 
     @Override
@@ -85,4 +93,3 @@ public class Client extends User {
                 '}';
     }
 }
-

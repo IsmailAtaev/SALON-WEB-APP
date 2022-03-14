@@ -1,6 +1,5 @@
 package com.salon.dao;
 
-import com.salon.dao.mapper.UserMapper;
 import com.salon.models.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -19,9 +18,10 @@ public class UserDAO {
     }
 
     public List<User> index() {
-        List<User> list = jdbcTemplate.query("SELECT * FROM users", new BeanPropertyRowMapper<>(User.class));
-        System.out.println(list.toString());
-        return null;
+        return jdbcTemplate.query("SELECT * FROM users", new BeanPropertyRowMapper<>(User.class));
+    }
+
+    public void save(User user) {
+        jdbcTemplate.update("INSERT INTO users (username, password) VALUES(?, ?)", user.getUsername(), user.getPassword());
     }
 }
-//UserMapper());
