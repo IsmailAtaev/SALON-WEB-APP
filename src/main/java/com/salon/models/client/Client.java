@@ -1,20 +1,28 @@
 package com.salon.models.client;
 
 import com.salon.models.user.User;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 import java.util.Objects;
 
-public class Client {
+public class Client extends User{
 
     private int clientID;
 
     private String name;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
     private String sex;
 
     public Client() {
+    }
+
+    public Client(String name, String sex) {
+        this.name = name;
+        this.sex = sex;
     }
 
     public Client(String name, Date birthDate, String sex) {
@@ -23,20 +31,12 @@ public class Client {
         this.sex = sex;
     }
 
-   /* public Client(int clientID, String name, Date birthDate, String sex) {
-        this.clientID = clientID;
+    public Client(String login, String pass, String name, Date birthDate, String sex) {
+        super(login, pass);
         this.name = name;
         this.birthDate = birthDate;
         this.sex = sex;
     }
-
-    public Client(int userID, String login, String pass, int clientID, String name, Date birthDate, String sex) {
-        super(login, pass);
-        this.clientID = clientID;
-        this.name = name;
-        this.birthDate = birthDate;
-        this.sex = sex;
-    }*/
 
     public String getName() {
         return name;

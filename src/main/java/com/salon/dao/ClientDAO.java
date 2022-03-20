@@ -20,7 +20,7 @@ public class ClientDAO {
     }
 
     public List<Client> getClientsDB() {
-        return jdbcTemplate.query("SELECT * FROM client",  new BeanPropertyRowMapper<>(Client.class));
+        return jdbcTemplate.query("SELECT * FROM client", new BeanPropertyRowMapper<>(Client.class));
     }
 
     public void save(Client client) {
@@ -28,5 +28,12 @@ public class ClientDAO {
                 client.getClientID(), client.getName(), client.getBirthDate(), client.getSex());
     }
 
+    public void saveUser(User user) {
+        jdbcTemplate.update("INSERT INTO users (username, password) VALUES(?, ?)", user.getUsername(), user.getPassword());
+    }
+
+    public List<User> getUserDB() {
+        return jdbcTemplate.query("SELECT * FROM users", new BeanPropertyRowMapper<>(User.class));
+    }
 
 }

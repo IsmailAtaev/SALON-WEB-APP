@@ -1,18 +1,18 @@
 package com.salon.models.appointment;
 
-import com.salon.models.client.Client;
-import com.salon.models.master.Master;
+import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 import java.util.Objects;
 
 public class Appointment {
 
-    private Client client;
+    private int clientID;
 
-    private Master master;
+    private int masterID;
 
     private String appointments;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     private String time;
@@ -20,33 +20,28 @@ public class Appointment {
     public Appointment() {
     }
 
-    /**
-     * Aggregation client and master
-     * Aggregation is when an instance of an engine is created somewhere
-     * else in the code, and is passed to the constructor as a parameter.
-     */
-    public Appointment(Client client, Master master, String appointments, Date date, String time) {
-        this.client = client;
-        this.master = master;
+    public Appointment(int clientID, int masterID, String appointments, Date date, String time) {
+        this.clientID = clientID;
+        this.masterID = masterID;
         this.appointments = appointments;
         this.date = date;
         this.time = time;
     }
 
-    public Client getClient() {
-        return client;
+    public int getClientID() {
+        return clientID;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClientID(int clientID) {
+        this.clientID = clientID;
     }
 
-    public Master getMaster() {
-        return master;
+    public int getMasterID() {
+        return masterID;
     }
 
-    public void setMaster(Master master) {
-        this.master = master;
+    public void setMasterID(int masterID) {
+        this.masterID = masterID;
     }
 
     public String getAppointments() {
@@ -78,21 +73,19 @@ public class Appointment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Appointment that = (Appointment) o;
-        return Objects.equals(client, that.client) && Objects.equals(master, that.master)
-                && Objects.equals(appointments, that.appointments) && Objects.equals(date, that.date)
-                && Objects.equals(time, that.time);
+        return clientID == that.clientID && masterID == that.masterID && Objects.equals(appointments, that.appointments) && Objects.equals(date, that.date) && Objects.equals(time, that.time);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(client, master, appointments, date, time);
+        return Objects.hash(clientID, masterID, appointments, date, time);
     }
 
     @Override
     public String toString() {
         return "Appointment{" +
-                "client=" + client +
-                ", master=" + master +
+                "clientID=" + clientID +
+                ", masterID=" + masterID +
                 ", appointments='" + appointments + '\'' +
                 ", date=" + date +
                 ", time='" + time + '\'' +

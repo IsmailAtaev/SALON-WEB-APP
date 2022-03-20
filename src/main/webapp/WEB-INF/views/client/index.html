@@ -7,7 +7,7 @@
 <body>
 
 <div th:each="person : ${people}">
-    <a th:text="${person.getName() + ', ' + person.getBirthDate() + ', ' + person.getSex() }">user</a>
+    <a th:text="${person.getClientID() + ', ' + person.getUsername() + ', ' + person.getPassword() + ', ' +  person.getName() + ', ' + person.getBirthDate() + ', ' + person.getSex() }">user</a>
 </div>
 
 <br/>

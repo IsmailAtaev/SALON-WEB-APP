@@ -3,7 +3,7 @@ package com.salon.models.service;
 import com.salon.models.type_of_service.TypeOfService;
 import java.util.Objects;
 
-public class Service {
+public class Service extends TypeOfService {
 
     private int serviceID;
 

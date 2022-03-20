@@ -24,4 +24,17 @@ public class UserDAO {
     public void save(User user) {
         jdbcTemplate.update("INSERT INTO users (username, password) VALUES(?, ?)", user.getUsername(), user.getPassword());
     }
+
+    public User show(int id) {
+        return jdbcTemplate.query("SELECT * FROM users WHERE id=?", new Object[]{id}, new BeanPropertyRowMapper<>(User.class)).stream().findAny().orElse(null);
+    }
+
+    public User showUserPass(String pass) {
+        return jdbcTemplate.query("SELECT * FROM users WHERE password=?", new Object[]{pass}, new BeanPropertyRowMapper<>(User.class)).stream().findAny().orElse(null);
+    }
+
+
+
+
+
 }
