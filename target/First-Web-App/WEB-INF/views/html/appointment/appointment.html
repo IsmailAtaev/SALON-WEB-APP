@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Index Clients</title>
+    </head>
+    <body>
+        <h1>Appointment</h1>
+        <br />
+         <select>
+                <option th:each="person: ${people}" th:text="${person.getName()}">
+                </option>
+            </select>
+            <input type="submit" value="Submit">
+        <br />
+         <select>
+             <option th:each="master: ${masters}" th:text="${master.getName()}">
+                </option>
+            </select>
+          <input type="submit" value="Submit">
+
+    </body>
+</html>

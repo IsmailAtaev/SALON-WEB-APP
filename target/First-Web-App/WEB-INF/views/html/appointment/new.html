@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Clients</title>
+</head>
+<body>
+
+<h1>Appointment</h1>
+<br />
+    <form th:method="POST" th:action="@{/app}" th:object="${ob}">
+        <select>
+            <option th:each="person: ${people}" th:text="${person.getName() + ' ' + person.getClientID()}" th:value="${ob.setClientID(person.getClientID())}" >
+            </option>
+        </select>
+        <input type="submit" value="Create!" />
+    </form>
+</body>
+</html>
+
+<!--   <select name="cars" id="cars" th:each="person : ${people}" >
+            <option value="volvo">Volvo</option>
+           <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+
+          </select>
+          <br><br>
+           -->

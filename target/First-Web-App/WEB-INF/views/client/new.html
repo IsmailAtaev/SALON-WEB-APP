@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New cln</title>
+  </head>
+
+  <body>
+    <form th:method="POST" th:action="@{/client}" th:object="${clients}">
+      <label for="name">Enter name: </label>
+      <input type="text" th:field="*{name}" id="name" />
+      <br />
+
+      <label for="birthday">Enter birthday: </label>
+      <input type="date" th:field="*{birthDate}" id="birthday" name="birthday" />
+      <br />
+
+      <label for="sex">Enter sex: </label>
+      <input type="text" th:field="*{sex}" id="sex" />
+      <br />
+
+
+              <label for="username">Enter username: </label>
+              <input type="text" th:field="*{username}" id="username" />
+              <br />
+
+              <label for="pass">Enter pass: </label>
+              <input type="text" th:field="*{password}" id="pass" />
+              <br />
+
+
+      <input type="submit" value="Create!" />
+    </form>
+  </body>
+</html>
